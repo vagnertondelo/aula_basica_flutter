@@ -1,20 +1,19 @@
-import 'package:aulabasica/quarta.dart';
-import 'package:aulabasica/segunda.dart';
-import 'package:aulabasica/terceira.dart';
+import 'package:aulabasica/app/components/drawer_custom.dart';
+import 'package:aulabasica/app/screens/quarta_screen.dart';
+
+import 'package:aulabasica/app/screens/terceira_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-
-
+class HomeScreen extends StatefulWidget {
+  const HomeScreen({super.key, required this.title});
   final String title;
 
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  State<HomeScreen> createState() => _HomeScreenState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _HomeScreenState extends State<HomeScreen> {
   final TextEditingController _controller1 = TextEditingController();
   int _counter = 0;
   double _resultado=0;
@@ -39,70 +38,7 @@ class _MyHomePageState extends State<MyHomePage> {
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: Text(widget.title),
       ),
-      drawer:
-      Drawer(
-        child: ListView(
-          padding: EdgeInsets.zero,
-          children: <Widget>[
-            DrawerHeader(
-              decoration: BoxDecoration(
-                color: Colors.blue,
-              ),
-              child: Text(
-                'Menu Header',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 24,
-                ),
-              ),
-            ),
-            ListTile(
-              title: Text('Home'),
-              onTap: () {
-                // Handle item 1 tap
-                // Navigator.pop(context);
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) =>
-                      MyHomePage(title: "Minha HOME")),
-                );
-              },
-            ),
-            ListTile(
-              title: Text('Segunda'),
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => SegundaPage()),
-                );
-
-
-              },
-            ),
-
-            ListTile(
-              title: Text('Terceira'),
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => TerceiraPage()),
-                );
-              },
-            ),
-            ListTile(
-              title: Text('Quarta'),
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) =>
-                      QuartaPage()),
-                );
-              },
-            ),
-          ],
-        ),
-      ),
-
+      drawer: DrawerCustom(),
 
       body: SingleChildScrollView(
         child: Column(

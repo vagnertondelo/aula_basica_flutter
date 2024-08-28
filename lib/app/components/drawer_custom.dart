@@ -1,27 +1,15 @@
-import 'package:aulabasica/segunda.dart';
-import 'package:aulabasica/terceira.dart';
+import 'package:aulabasica/app/screens/lista_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import 'home.dart';
+import '../screens/home_screen.dart';
+import '../screens/quarta_screen.dart';
+import '../screens/terceira_screen.dart';
 
-class QuartaPage extends StatefulWidget {
-
-  @override
-  State<QuartaPage> createState() => _QuartaPageState();
-}
-
-class _QuartaPageState extends State<QuartaPage> {
-
-
+class DrawerCustom extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: Text('Quarta Tela'),
-      ),
-      drawer:
+    return
       Drawer(
         child: ListView(
           padding: EdgeInsets.zero,
@@ -46,7 +34,7 @@ class _QuartaPageState extends State<QuartaPage> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(builder: (context) =>
-                      MyHomePage(title: "Minha HOME")),
+                      HomeScreen(title: "Minha HOME")),
                 );
               },
             ),
@@ -55,10 +43,8 @@ class _QuartaPageState extends State<QuartaPage> {
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => SegundaPage()),
+                  MaterialPageRoute(builder: (context) => HomeScreen(title: "HOME")),
                 );
-
-
               },
             ),
 
@@ -67,40 +53,33 @@ class _QuartaPageState extends State<QuartaPage> {
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => TerceiraPage()),
+                  MaterialPageRoute(builder: (context) => TerceiraScreen()),
                 );
               },
             ),
-
             ListTile(
               title: Text('Quarta'),
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => QuartaPage()),
+                  MaterialPageRoute(builder: (context) =>
+                      QuartaScreen()),
+                );
+              },
+            ),
+            ListTile(
+              title: Text('Lista'),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) =>
+                      ListaScreen()),
                 );
               },
             ),
           ],
         ),
-      ),
-      // SingleChildScrollView
-      body: SingleChildScrollView(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              'Minha Quarta tela',
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
-            Image.asset('assets/dall-e-2.webp'),
-            Image.asset('assets/nyan-cat.gif'),
-            Image.asset('assets/dall-e-2.webp'),
-            Image.asset('assets/nyan-cat.gif'),
-          ],
-        ),
-      ),
-      // This trailing comma makes auto-formatting nicer for build methods.
-    );
+      );
+
   }
 }

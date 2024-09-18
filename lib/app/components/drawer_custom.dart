@@ -1,3 +1,4 @@
+import 'package:aulabasica/app/screens/formulario_screen.dart';
 import 'package:aulabasica/app/screens/lista_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -77,9 +78,19 @@ class DrawerCustom extends StatelessWidget {
                 );
               },
             ),
+
+            ListTile(
+              title: Text('Formulario'),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) =>
+                      FormularioScreen()),
+                );
+              },
+            ),
           ],
         ),
       );
-
   }
 }
